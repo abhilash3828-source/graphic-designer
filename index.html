@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Professional graphic designer portfolio showcasing creative design work including thumbnails, posters, logos, and advertising creatives.">
+    <meta name="keywords" content="graphic design, portfolio, designer, creative, posters, logos, advertising">
+    <meta name="author" content="Your Name">
+    <title>Design Portfolio - Creative Graphic Designer</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-text">Design Studio</span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1 class="hero-title">Creative Design Solutions</h1>
+            <p class="hero-subtitle">Transforming ideas into compelling visual experiences</p>
+            <a href="#portfolio" class="cta-button">Explore My Work</a>
+        </div>
+        <div class="hero-background">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">About Me</h2>
+                <div class="title-underline"></div>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>I'm a passionate graphic designer dedicated to creating impactful visual experiences. With expertise in branding, print design, and digital creativity, I bring every concept to life with precision and innovation.</p>
+                    <p>My approach combines strategic thinking with creative excellence, ensuring every project aligns with client vision while pushing creative boundaries.</p>
+                    <div class="skills">
+                        <span class="skill-tag">Graphic Design</span>
+                        <span class="skill-tag">Branding</span>
+                        <span class="skill-tag">Print Design</span>
+                        <span class="skill-tag">Advertising</span>
+                        <span class="skill-tag">Adobe Creative Suite</span>
+                    </div>
+                </div>
+                <div class="about-stats">
+                    <div class="stat">
+                        <h3>50+</h3>
+                        <p>Projects Completed</p>
+                    </div>
+                    <div class="stat">
+                        <h3>30+</h3>
+                        <p>Happy Clients</p>
+                    </div>
+                    <div class="stat">
+                        <h3>5+</h3>
+                        <p>Years Experience</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="portfolio" id="portfolio">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Featured Work</h2>
+                <div class="title-underline"></div>
+            </div>
+            
+            <!-- Filter Buttons -->
+            <div class="portfolio-filters">
+                <button class="filter-btn active" data-filter="all">All Works</button>
+                <button class="filter-btn" data-filter="thumbnail">Thumbnails</button>
+                <button class="filter-btn" data-filter="poster">Posters</button>
+                <button class="filter-btn" data-filter="logo">Logo</button>
+                <button class="filter-btn" data-filter="creative">Ad Creative</button>
+            </div>
+<!-- "portfolio grid" -->
+            <!-- Portfolio Grid -->
+            <div class="portfolio-grid">
+                <!-- Logo -->
+                <div class="portfolio-item" data-category="logo">
+                    <div class="portfolio-card">
+                        <img src="image/logo.png" alt="Coffee House Logo Design" class="portfolio-image" loading="lazy">
+                        <div class="portfolio-overlay">
+                            <h3>Coffee House Logo</h3>
+                            <p>Professional brand logo design with circular emblem</p>
+                            <div class="portfolio-tools">
+                                <span class="tool-badge">Illustrator</span>
+                                <span class="tool-badge">Photoshop</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Thumbnails -->
+                <div class="portfolio-item" data-category="thumbnail">
+                    <div class="portfolio-card">
+                        <img src="image/thumbnail 1 .jpg" alt="Thumbnail Design 1" class="portfolio-image" loading="lazy">
+                        <div class="portfolio-overlay">
+                            <h3>Thumbnail Design 1</h3>
+                            <p>Eye-catching YouTube thumbnail for content creators</p>
+                            <div class="portfolio-tools">
+                                <span class="tool-badge">Photoshop</span>
+                                <span class="tool-badge">Figma</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item" data-category="thumbnail">
+                    <div class="portfolio-card">
+                        <img src="image/thumbnail 2.jpg" alt="Thumbnail Design 2" class="portfolio-image" loading="lazy">
+                        <div class="portfolio-overlay">
+                            <h3>Thumbnail Design 2</h3>
+                            <p>Professional thumbnail with modern aesthetics</p>
+                            <div class="portfolio-tools">
+                                <span class="tool-badge">Canva</span>
+                                <span class="tool-badge">Photoshop</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item" data-category="thumbnail">
+                    <div class="portfolio-card">
+                        <img src="image/thumbnail 3.png" alt="Thumbnail Design 3" class="portfolio-image" loading="lazy">
+                        <div class="portfolio-overlay">
+                            <h3>Thumbnail Design 3</h3>
+                            <p>Engaging design for video marketing</p>
+                            <div class="portfolio-tools">
+                                <span class="tool-badge">Figma</span>
+                                <span class="tool-badge">Canva</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item" data-category="thumbnail">
+                    <div class="portfolio-card">
+                        <img src="image/thumbnail 4.png" alt="Thumbnail Design 4" class="portfolio-image" loading="lazy">
+                        <div class="portfolio-overlay">
+                            <h3>Thumbnail Design 4</h3>
+                            <p>Bold and vibrant thumbnail for content creators</p>
+                            <div class="portfolio-tools">
+                                <span class="tool-badge">Photoshop</span>
+                                <span class="tool-badge">Illustrator</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Posters -->
+                <div class="portfolio-item" data-category="poster">
+                    <div class="portfolio-card">
+                        <img src="image/poster 1.png" alt="Event Poster 1" class="portfolio-image" loading="lazy">
+                        <div class="portfolio-overlay">
+                            <h3>Event Poster 1</h3>
+                            <p>Dynamic event poster with modern typography</p>
+                            <div class="portfolio-tools">
+                                <span class="tool-badge">Photoshop</span>
+                                <span class="tool-badge">Illustrator</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item" data-category="poster">
+                    <div class="portfolio-card">
+                        <img src="image/poster 2.png" alt="Event Poster 2" class="portfolio-image" loading="lazy">
+                        <div class="portfolio-overlay">
+                            <h3>Event Poster 2</h3>
+                            <p>Professional poster design for promotions</p>
+                            <div class="portfolio-tools">
+                                <span class="tool-badge">Figma</span>
+                                <span class="tool-badge">Photoshop</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item" data-category="poster">
+                    <div class="portfolio-card">
+                        <img src="image/poster 3.png" alt="Event Poster 3" class="portfolio-image" loading="lazy">
+                        <div class="portfolio-overlay">
+                            <h3>Event Poster 3</h3>
+                            <p>Contemporary design for cultural events</p>
+                            <div class="portfolio-tools">
+                                <span class="tool-badge">Illustrator</span>
+                                <span class="tool-badge">Canva</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ad Creative -->
+                <div class="portfolio-item" data-category="creative">
+                    <div class="portfolio-card">
+                        <img src="image/add creative 1.png" alt="Ad Creative 1" class="portfolio-image" loading="lazy">
+                        <div class="portfolio-overlay">
+                            <h3>Ad Creative 1</h3>
+                            <p>Conversion-focused advertising creative design</p>
+                            <div class="portfolio-tools">
+                                <span class="tool-badge">Photoshop</span>
+                                <span class="tool-badge">Figma</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item" data-category="creative">
+                    <div class="portfolio-card">
+                        <img src="image/add creative 3.png" alt="Ad Creative 2" class="portfolio-image" loading="lazy">
+                        <div class="portfolio-overlay">
+                            <h3>Ad Creative 2</h3>
+                            <p>Large format advertising with impactful messaging</p>
+                            <div class="portfolio-tools">
+                                <span class="tool-badge">Canva</span>
+                                <span class="tool-badge">Photoshop</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+         
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Get In Touch</h2>
+                <div class="title-underline"></div>
+            </div>
+            <div class="contact-content">
+                <p class="contact-subtitle">Have a project in mind? Let's collaborate and create something amazing together.</p>
+                <!--form submission ---setting this up to use formsuitmit.co service-->
+                <form class="contact-form" action="https://formspree.io/f/xjgblgea" method="POST">
+                    <div class="form-group">
+                        <input type="text" id="name" name="name" placeholder="Your Name" required>
+                        <span class="error-message"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" placeholder="Your Email" required>
+                        <span class="error-message"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="subject" name="subject" placeholder="Project Subject" required>
+                        <span class="error-message"></span>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" name="message" placeholder="Tell me about your project..." rows="5" required></textarea>
+                        <span class="error-message"></span>
+                    </div>
+                    <button type="submit" class="submit-button">Send Message</button>
+                </form>
+                <div class="contact-info">
+                    <div class="info-item">
+                        <h4>Email</h4>
+                        <p><a href="mailto:abhilash.3828@gmail.com">abhilash.3828@gmail.com</a></p>
+                    </div>
+                    <div class="info-item">
+                        <h4>Location</h4>
+                        <p>Lucknow , uttar pradesh</p>
+                    </div>
+                    <div class="info-item">
+                        <h4>Follow</h4>
+                        <div class="social-links">
+                            <a href="https://www.instagram.com/abhi.lash7703?igsh=MTl5cjl1dXpzZGZo" aria-label="Instagram">Instagram</a>
+                            <a href="#" aria-label="Behance">Behance</a>
+                            <a href="https://www.linkedin.com/in/abhilash-3a5628260?utm_source=share_via&utm_content=profile&utm_medium=member_android" aria-label="LinkedIn">LinkedIn</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Design Studio. All rights reserved.</p>
+            <p>Designed and developed with <span class="heart">♥</span> passion</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+     </body>    
+</html>                                  
+                            
+
+
+                                                                                           
