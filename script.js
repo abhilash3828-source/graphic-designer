@@ -18,6 +18,14 @@ navLinks.forEach(link => {
     });
 });
 
+// Close mobile menu when clicking outside
+document.addEventListener('click', (e) => {
+    if (!e.target.closest('.nav-container')) {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
+    }
+});
+
 // ===============================
 // Navbar Scroll Effect
 // ===============================
@@ -58,8 +66,6 @@ function highlightActiveLink() {
         }
     });
 }
-
-window.addEventListener('scroll', highlightActiveLink);
 
 // ===============================
 // Portfolio Filter Functionality
@@ -253,8 +259,12 @@ function createScrollToTopButton() {
         });
     });
 
-    button.addEventListener('hover', () => {
+    button.addEventListener('mouseenter', () => {
         button.style.transform = 'translateY(-5px)';
+    });
+
+    button.addEventListener('mouseleave', () => {
+        button.style.transform = 'translateY(0)';
     });
 }
 
@@ -299,6 +309,40 @@ function debounce(func, wait) {
 window.addEventListener('scroll', debounce(highlightActiveLink, 100));
 
 // ===============================
+// Mobile-Specific Optimizations
+// ===============================
+const isMobileDevice = () => {
+    return (typeof window.orientation !== 'undefined') || 
+           (navigator.userAgent.indexOf('IEMobile') !== -1) ||
+           (navigator.userAgent.match(/iPhone|iPad|iPod|Android|BlackBerry|Windows Phone/i));
+};
+
+// Disable animations on low-end mobile devices
+if (isMobileDevice()) {
+    // Reduce animation duration on mobile
+    document.documentElement.style.setProperty('--transition', 'all 0.15s ease-out');
+    
+    // Optimize portfolio hover effects for touch devices
+    const portfolioCards = document.querySelectorAll('.portfolio-card');
+    portfolioCards.forEach(card => {
+        card.addEventListener('touchstart', function(e) {
+            portfolioCards.forEach(c => c.classList.remove('touch-active'));
+            this.classList.add('touch-active');
+        });
+    });
+}
+
+// Handle viewport resize for responsive behavior
+let resizeTimer;
+window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+        // Recalculate on resize if needed
+        highlightActiveLink();
+    }, 250);
+});
+
+// ===============================
 // Accessibility: Focus styles
 // ===============================
 document.addEventListener('keydown', (e) => {
@@ -320,6 +364,17 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Add subtle page load animation
     document.body.style.opacity = '1';
+    
+    // Improve form input handling on mobile
+    if (isMobileDevice()) {
+        const inputs = document.querySelectorAll('input[type="text"], input[type="email"], textarea');
+        inputs.forEach(input => {
+            // Prevent zoom on input focus on iOS
+            input.addEventListener('focus', function() {
+                this.style.fontSize = '16px';
+            });
+        });
+    }
 });
 
 // Prevent layout shift by setting initial opacity
