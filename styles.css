@@ -21,6 +21,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
 }
 
 html {
@@ -34,6 +35,8 @@ body {
     line-height: 1.8;
     overflow-x: hidden;
     letter-spacing: 0.3px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 /* ===============================
@@ -879,9 +882,56 @@ a:hover {
 }
 
 /* ===============================
-   Responsive Design
+   Accessibility & Reduced Motion
+   =============================== */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* ===============================
+   Tablet-Specific Optimizations (1024px and below)
+   =============================== */
+@media (max-width: 1024px) {
+    .container {
+        padding: 0 1.8rem;
+    }
+
+    h1 {
+        font-size: clamp(2rem, 5.5vw, 3.5rem);
+    }
+
+    h2 {
+        font-size: clamp(1.5rem, 4vw, 2.5rem);
+    }
+
+    .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.8rem;
+    }
+
+    .about-content {
+        gap: 3rem;
+    }
+
+    .contact-content {
+        gap: 2.5rem;
+    }
+}
+
+/* ===============================
+   Responsive Design - Tablet (768px and below)
    =============================== */
 @media (max-width: 768px) {
+    /* Navigation */
+    .nav-container {
+        padding: 1rem 1.5rem;
+    }
+
     .nav-menu {
         position: absolute;
         left: -100%;
@@ -893,7 +943,7 @@ a:hover {
         transition: var(--transition);
         box-shadow: var(--shadow-md);
         padding: 2rem 0;
-        gap: 1rem;
+        gap: 1.5rem;
     }
 
     .nav-menu.active {
@@ -904,31 +954,132 @@ a:hover {
         display: flex;
     }
 
-    .hero {
-        min-height: 80vh;
-        padding: 2rem 0;
+    .nav-link {
+        font-size: 1rem;
+        padding: 0.5rem 0;
     }
 
+    .nav-link::after {
+        display: none;
+    }
+
+    .nav-link.active {
+        color: var(--accent-color);
+        font-weight: 700;
+    }
+
+    /* Typography */
+    h1 {
+        font-size: clamp(1.8rem, 5vw, 2.8rem);
+    }
+
+    h2 {
+        font-size: clamp(1.4rem, 4vw, 2.2rem);
+    }
+
+    p {
+        font-size: 0.95rem;
+        line-height: 1.7;
+    }
+
+    /* Hero Section */
+    .hero {
+        min-height: 70vh;
+        padding: 3rem 0;
+        justify-content: center;
+    }
+
+    .hero-content {
+        padding: 0 1.5rem;
+        max-width: 100%;
+    }
+
+    .hero-title {
+        margin-bottom: 1.2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.1rem;
+        margin-bottom: 2rem;
+    }
+
+    .cta-button {
+        padding: 1rem 2.5rem;
+        font-size: 0.95rem;
+    }
+
+    .shape-1,
+    .shape-2,
+    .shape-3 {
+        opacity: 0.05;
+    }
+
+    /* Container */
+    .container {
+        padding: 0 1.5rem;
+    }
+
+    /* Section Spacing */
+    .about,
+    .portfolio,
+    .contact {
+        padding: 3.5rem 0;
+    }
+
+    .section-header {
+        margin-bottom: 3rem;
+    }
+
+    /* About Section */
     .about-content {
         grid-template-columns: 1fr;
-        gap: 2rem;
+        gap: 2.5rem;
     }
 
-    .contact-content {
-        grid-template-columns: 1fr;
+    .about-text p {
+        font-size: 1rem;
+        line-height: 1.8;
+    }
+
+    .skills {
+        gap: 0.6rem;
+    }
+
+    .skill-tag {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
     }
 
     .about-stats {
         grid-template-columns: repeat(3, 1fr);
-        gap: 1rem;
+        gap: 1.5rem;
     }
 
     .stat {
-        padding: 1rem;
+        padding: 1.5rem;
+        border-radius: 12px;
     }
 
     .stat h3 {
         font-size: 2rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .stat p {
+        font-size: 0.9rem;
+        margin: 0;
+    }
+
+    /* Portfolio Section */
+    .portfolio-filters {
+        gap: 0.75rem;
+        margin-bottom: 2.5rem;
+    }
+
+    .filter-btn {
+        padding: 0.7rem 1.4rem;
+        font-size: 0.85rem;
+        border-radius: 40px;
     }
 
     .portfolio-grid {
@@ -944,31 +1095,104 @@ a:hover {
         max-width: 100%;
     }
 
-    .contact-info {
-        gap: 1.5rem;
+    .portfolio-item:nth-child(8) {
+        grid-column: auto;
+        max-width: 100%;
     }
 
-    .portfolio-filters {
-        gap: 0.5rem;
+    .portfolio-card {
+        border-radius: 12px;
     }
 
-    .filter-btn {
-        padding: 0.5rem 1rem;
+    .portfolio-overlay {
+        padding: 1.5rem;
+    }
+
+    .portfolio-overlay h3 {
+        font-size: 1.1rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .portfolio-overlay p {
+        font-size: 0.9rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .tool-badge {
+        padding: 0.5rem 0.9rem;
         font-size: 0.8rem;
     }
 
-    .nav-link::after {
-        display: none;
+    /* Contact Section */
+    .contact-content {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
     }
 
-    .nav-link.active {
-        color: var(--primary-color);
+    .contact-subtitle {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .contact-form {
+        gap: 1.3rem;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        padding: 0.95rem;
+        font-size: 1rem;
+        border-radius: 8px;
+    }
+
+    .submit-button {
+        padding: 1rem 2rem;
+        font-size: 0.95rem;
+        border-radius: 8px;
+    }
+
+    .contact-info {
+        gap: 1.5rem;
+        padding: 1.5rem;
+        border-radius: 12px;
+    }
+
+    .info-item h4 {
+        margin-bottom: 0.5rem;
+        font-size: 1rem;
+    }
+
+    .social-links {
+        gap: 0.75rem;
+    }
+
+    .social-links a {
+        padding: 0.5rem 0.9rem;
+        font-size: 0.8rem;
+        border-radius: 6px;
     }
 }
 
-@media (max-width: 480px) {
+/* ===============================
+   Responsive Design - Small Tablet (640px and below)
+   =============================== */
+@media (max-width: 640px) {
     .container {
-        padding: 0 1rem;
+        padding: 0 1.2rem;
+    }
+
+    .nav-container {
+        padding: 0.85rem 1.2rem;
+    }
+
+    .nav-logo {
+        font-size: 1.3rem;
+    }
+
+    .nav-menu {
+        top: 65px;
+        padding: 1.5rem 0;
+        gap: 1rem;
     }
 
     .section-header {
@@ -976,33 +1200,42 @@ a:hover {
     }
 
     .about-stats {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.2rem;
     }
 
-    .portfolio-grid {
-        grid-template-columns: 1fr;
+    .stat {
+        padding: 1.2rem;
     }
 
-    .contact-form,
-    .contact-info {
-        gap: 1rem;
-    }
-
-    .nav-menu {
-        top: 60px;
-        padding: 1rem 0;
-    }
-
-    .nav-link {
-        font-size: 0.85rem;
-    }
-
-    .hero-title {
+    .stat h3 {
         font-size: 1.75rem;
     }
 
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+
+    .cta-button {
+        padding: 0.9rem 2rem;
+        font-size: 0.9rem;
+    }
+
+    .portfolio-filters {
+        gap: 0.5rem;
+        justify-content: flex-start;
+        overflow-x: auto;
+        padding-bottom: 0.5rem;
+    }
+
+    .filter-btn {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.8rem;
+        white-space: nowrap;
+    }
+
     .portfolio-overlay {
-        padding: 1rem;
+        padding: 1.2rem;
     }
 
     .portfolio-overlay h3 {
@@ -1010,6 +1243,367 @@ a:hover {
     }
 
     .portfolio-overlay p {
+        font-size: 0.85rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .tool-badge {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.75rem;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        padding: 0.9rem;
+        font-size: 16px;
+        border-radius: 8px;
+    }
+
+    .contact-form textarea {
+        resize: vertical;
+        min-height: 120px;
+    }
+
+    .submit-button {
+        padding: 0.95rem 1.8rem;
+        font-size: 0.9rem;
+    }
+
+    .contact-info {
+        padding: 1.2rem;
+        gap: 1.2rem;
+    }
+
+    .info-item h4 {
+        font-size: 0.95rem;
+    }
+
+    .social-links {
+        flex-direction: column;
+    }
+
+    .social-links a {
+        width: 100%;
+        text-align: center;
+        padding: 0.7rem 1rem;
+    }
+}
+
+/* ===============================
+   Responsive Design - Mobile (480px and below)
+   =============================== */
+@media (max-width: 480px) {
+    .container {
+        padding: 0 1rem;
+    }
+
+    /* Navigation */
+    .nav-container {
+        padding: 0.75rem 1rem;
+    }
+
+    .nav-logo {
+        font-size: 1.2rem;
+    }
+
+    .nav-menu {
+        top: 60px;
+        padding: 1.2rem 0;
+        gap: 0.8rem;
+    }
+
+    .nav-link {
+        font-size: 0.95rem;
+        padding: 0.4rem 0;
+    }
+
+    .hamburger span {
+        width: 22px;
+        height: 2.5px;
+    }
+
+    /* Typography */
+    h1 {
+        font-size: clamp(1.5rem, 4.5vw, 2rem);
+    }
+
+    h2 {
+        font-size: clamp(1.2rem, 3.5vw, 1.8rem);
+    }
+
+    h3 {
+        font-size: clamp(1rem, 2.5vw, 1.3rem);
+    }
+
+    p {
+        font-size: 0.9rem;
+        line-height: 1.6;
+    }
+
+    /* Hero Section */
+    .hero {
+        min-height: 60vh;
+        padding: 2rem 0;
+    }
+
+    .hero-content {
+        padding: 0 1rem;
+    }
+
+    .hero-title {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .hero-subtitle {
+        font-size: 0.95rem;
+        margin-bottom: 1.5rem;
+        line-height: 1.6;
+    }
+
+    .cta-button {
+        padding: 0.85rem 1.8rem;
+        font-size: 0.85rem;
+        border-radius: 40px;
+    }
+
+    .shape {
+        opacity: 0.03;
+    }
+
+    .shape-1 {
+        width: 200px;
+        height: 200px;
+    }
+
+    .shape-2 {
+        width: 150px;
+        height: 150px;
+    }
+
+    .shape-3 {
+        width: 180px;
+        height: 180px;
+    }
+
+    /* Section Spacing */
+    .about,
+    .portfolio,
+    .contact {
+        padding: 2.5rem 0;
+    }
+
+    .section-header {
+        margin-bottom: 2rem;
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .title-underline {
+        width: 60px;
+    }
+
+    /* About Section */
+    .about-content {
+        gap: 2rem;
+    }
+
+    .about-text p {
+        font-size: 0.95rem;
+        line-height: 1.7;
+        margin-bottom: 1.2rem;
+    }
+
+    .skills {
+        gap: 0.5rem;
+        margin-top: 1.5rem;
+    }
+
+    .skill-tag {
+        padding: 0.5rem 1rem;
         font-size: 0.8rem;
+        border-radius: 20px;
+    }
+
+    .about-stats {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .stat {
+        padding: 1rem;
+        border-radius: 10px;
+    }
+
+    .stat h3 {
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .stat p {
+        font-size: 0.85rem;
+    }
+
+    /* Portfolio Section */
+    .portfolio-filters {
+        gap: 0.4rem;
+        margin-bottom: 2rem;
+        justify-content: center;
+    }
+
+    .filter-btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.75rem;
+        border-radius: 35px;
+    }
+
+    .portfolio-grid {
+        gap: 1.2rem;
+    }
+
+    .portfolio-card {
+        border-radius: 10px;
+    }
+
+    .portfolio-image {
+        height: 100%;
+    }
+
+    .portfolio-overlay {
+        padding: 1rem;
+        border-radius: 10px;
+    }
+
+    .portfolio-overlay h3 {
+        font-size: 0.95rem;
+        margin-bottom: 0.4rem;
+    }
+
+    .portfolio-overlay p {
+        font-size: 0.8rem;
+        margin-bottom: 0.5rem;
+        line-height: 1.4;
+    }
+
+    .tool-badge {
+        padding: 0.35rem 0.7rem;
+        font-size: 0.7rem;
+        border-radius: 15px;
+    }
+
+    /* Contact Section */
+    .contact-subtitle {
+        font-size: 0.95rem;
+        margin-bottom: 1.3rem;
+        line-height: 1.6;
+    }
+
+    .contact-form {
+        gap: 1.2rem;
+    }
+
+    .form-group {
+        margin-bottom: 0;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        padding: 0.85rem;
+        font-size: 16px;
+        border-radius: 8px;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        border: 2px solid #334155;
+    }
+
+    .contact-form textarea {
+        min-height: 120px;
+        resize: vertical;
+        font-family: inherit;
+    }
+
+    .submit-button {
+        padding: 0.9rem 1.8rem;
+        font-size: 0.9rem;
+        border-radius: 8px;
+        width: 100%;
+    }
+
+    .contact-info {
+        padding: 1rem;
+        gap: 1.2rem;
+        border-radius: 10px;
+    }
+
+    .info-item h4 {
+        font-size: 0.9rem;
+        margin-bottom: 0.4rem;
+    }
+
+    .info-item p {
+        font-size: 0.85rem;
+    }
+
+    .social-links {
+        flex-direction: column;
+        gap: 0.6rem;
+    }
+
+    .social-links a {
+        width: 100%;
+        text-align: center;
+        padding: 0.6rem 1rem;
+        font-size: 0.8rem;
+        border-radius: 6px;
+    }
+
+    /* Footer */
+    .footer {
+        padding: 1.5rem 0;
+    }
+
+    .footer p {
+        font-size: 0.85rem;
+        margin-bottom: 0.4rem;
+    }
+
+    .heart {
+        font-size: 1rem;
+    }
+
+    /* Animations */
+    @keyframes slideDown {
+        from {
+            opacity: 0;
+            transform: translateY(-15px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes slideInUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes float {
+        0%, 100% {
+            transform: translateY(0px);
+        }
+        50% {
+            transform: translateY(10px);
+        }
     }
 }
