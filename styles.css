@@ -518,15 +518,10 @@ a:hover {
     aspect-ratio: 605 / 757;
 }
 
-/* Center Mindset thumbnail (6th item) when alone */
-.portfolio-item:nth-child(6) {
-    grid-column: 1 / -1;
-    justify-self: center;
-    max-width: 600px;
-}
 
-/* Center third poster when alone on a row */
-.portfolio-item:nth-child(9) {
+
+/* Center last poster */
+.portfolio-item:nth-child(10) {
     grid-column: 1 / -1;
     justify-self: center;
     max-width: 400px;
@@ -583,7 +578,8 @@ a:hover {
 }
 
 .portfolio-card:hover .portfolio-overlay {
-    opacity: 1;
+    opacity: 0;
+    display: none;
 }
 
 .portfolio-overlay h3 {
